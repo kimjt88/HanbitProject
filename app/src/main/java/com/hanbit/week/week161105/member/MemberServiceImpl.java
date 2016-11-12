@@ -1,6 +1,7 @@
 package com.hanbit.week.week161105.member;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ public class MemberServiceImpl implements MemberService {
     MemberDAO dao;
 
     public MemberServiceImpl(Context context) {
+
         dao = new MemberDAO(context);
     }
 
@@ -19,6 +21,14 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void join(MemberDTO param) {
 
+        Log.d("JOIN : ID ",param.getId());
+        Log.d("JOIN : PW ",param.getPw());
+        Log.d("JOIN : NAME ",param.getName());
+        Log.d("JOIN : PHONE ",param.getPhone());
+        Log.d("JOIN : ADDR ",param.getAddr());
+        Log.d("JOIN : EMAIL ",param.getEmail());
+
+        dao.insert(param);
     }
 
     @Override
@@ -44,10 +54,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO login(MemberDTO param) {
-
-        MemberDTO member = new MemberDTO();
-        return member;
+    public boolean login(MemberDTO param) {
+        return param.getPw().equals(dao.login(param).getPw());
     }
 
     @Override

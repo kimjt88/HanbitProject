@@ -12,9 +12,7 @@ import com.hanbit.week.week161105.member.LoginActivity;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener{
 
-    Button calc;
-    Button join;
-    Button login;
+    Button calc,join,login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         calc = (Button) findViewById(R.id.Calc);
         join = (Button) findViewById(R.id.Join);
-        login = (Button) findViewById(R.id.login);
+        login = (Button) findViewById(R.id.Login);
 
         calc.setOnClickListener(this);
         join.setOnClickListener(this);
@@ -37,20 +35,19 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) { // v : 로컬변수
 
         // local variable initialize
-        Intent intent;
         switch (v.getId()){
             case R.id.Calc :
                 // 시작하는 위치, 가야하는 클래스
-                intent = new Intent(this.getApplicationContext(), calcActivity.class);
+                Intent intent = new Intent(this.getApplicationContext(), calcActivity.class);
                 this.startActivity(intent);
                 break;
             case R.id.Join :
-                intent = new Intent(this.getApplicationContext(), JoinActivity.class);
-                this.startActivity(intent);
+                Intent intent2 = new Intent(this.getApplicationContext(), JoinActivity.class);
+                this.startActivity(intent2);
                 break;
-            case R.id.login:
-                intent = new Intent(this.getApplicationContext(), LoginActivity.class);
-                this.startActivity(intent);
+            case R.id.Login:
+                Intent intent3 = new Intent(this.getApplicationContext(), LoginActivity.class);
+                this.startActivity(intent3);
                 break;
         }
 
