@@ -41,16 +41,13 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public MemberDTO detail(String id) {
-
-        MemberDTO member = new MemberDTO();
-        return member;
+        return dao.selectOn(id);
     }
 
     @Override
     public ArrayList<MemberDTO> list() {
-
         ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
-        return list;
+        return dao.selectList();
     }
 
     @Override
@@ -60,12 +57,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void update(MemberDTO param) {
-
-
+        dao.update(param);
     }
 
     @Override
-    public void delete(MemberDTO param) {
-
+    public void delete(String id) {
+        dao.delete(id);
     }
 }
