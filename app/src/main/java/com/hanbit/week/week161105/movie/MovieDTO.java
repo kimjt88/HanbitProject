@@ -5,5 +5,4 @@ package com.hanbit.week.week161105.movie;
  */
 
 public class MovieDTO {
-
 }
